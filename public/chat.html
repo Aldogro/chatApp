@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/styles.css"/>
+  <title>Chat App</title>
+  <link rel="icon" href="img/favicon.png"/>
+</head>
+<body>
+  <div class="chat">
+
+    <div id="sidebar" class="chat__sidebar"></div>
+
+    <div class="chat__main">
+      <h3 id="display"></h3>
+      <div id="messages" class="chat__messages"></div>
+      <div class="compose">
+        <form id="message-form">
+          <input id="mensaje" type="text" placeholder="Mensaje"/>
+          <button id="boton">Enviar</button>
+        </form>
+        <button id="sendLocation">Compartir ubicación</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script id="message-template" type="text/html">
+    <div class="message">
+      <p>
+        <span class="message__name">{{username}}</span>
+        <span class="message__meta">{{createdAt}}</span>
+      </p>
+      <p>{{message}}</p>
+    </div>
+  </script>
+
+  <script id="location-message-template" type="text/html">
+    <div class="message">
+      <p>
+        <span class="message__name">{{username}}</span>
+        <span class="message__meta">{{createdAt}}</span>
+      </p>
+      <p><a href="{{url}}" target="_blank">Localización</a></p>
+    </div>
+  </script>
+
+  <script id="sidebar-template" type="text/html">
+    <h2 class="room-title">#{{room}}</h2>
+    <h3 class="list-title">Usuarios Online</h3>
+    <ul class="users">
+      {{#users}}
+        <li>{{username}}</li>
+      {{/users}}
+    </ul>
+  </script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/chat.js"></script>
+</body>
+</html>
