@@ -138,7 +138,7 @@ button:disabled {
 }
 
 .message a {
-    color: #0070CC;
+    color: rgb(255, 136, 1);
 }
 
 /* Message Composition Styles */
