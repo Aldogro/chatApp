@@ -16,7 +16,7 @@ const appPublicPath = path.join(__dirname, '../public')
 app.use(express.static(appPublicPath))
 
 io.on('connection', (socket) => {
-  console.log('New Websocket connection')
+  console.log('Nueva Conexión a través de WebSocket')
 
   socket.on('join', ({ username, room }, callback) => {
     const { error, user } = addUser({ id: socket.id, username, room})
@@ -28,7 +28,7 @@ io.on('connection', (socket) => {
     socket.join(user.room)
 
     //envía el mensaje sólo al usuario que se conectó
-    socket.emit('bienvenida', generateMessage('Admin', `Bienvenido ${username}, dejanos un mensaje`))
+    socket.emit('bienvenida', generateMessage('Admin', `Bienvenid@ ${username}`))
     //envía el mensaje a todos los usuarios excepto al que se conectó
     socket.broadcast.to(user.room).emit('message', generateMessage('Admin', `${username} se acaba de conectar al canal ${room}`))
     io.to(user.room).emit('roomData', {

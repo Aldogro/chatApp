@@ -16,7 +16,7 @@ const sidebarTemplate = document.querySelector('#sidebar-template').innerHTML
 const {username, room} = Qs.parse(location.search, { ignoreQueryPrefix: true })
 
 socket.on('bienvenida', (bienvenida) => {
-  document.querySelector('#display').innerHTML = `${bienvenida.username} ${moment(bienvenida.createdAt).format('DD/MM/YYYY kk:mm')} - ${bienvenida.text}`
+  document.querySelector('#display').innerHTML = `${bienvenida.username} dice: ${moment(bienvenida.createdAt).format('DD/MM/YYYY kk:mm')} - ${bienvenida.text}`
 })
 
 $messageForm.addEventListener('submit', (e) => {

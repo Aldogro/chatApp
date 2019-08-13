@@ -28,19 +28,19 @@ label {
     display: block;
     font-size: 14px;
     margin-bottom: 8px;
-    color: #777;
+    color: rgb(73, 73, 73);
 }
 
 input {
-    border: 1px solid #eeeeee;
+    border: 1px solid #b9b9b9;
     padding: 12px;
-    outline: none;
+    outline-color: #ff9148;
 }
 
 button {
     cursor: pointer;
     padding: 12px;
-    background: #7C5CBF;
+    background: #fe6601;
     border: none;
     color: white;
     font-size: 16px;
@@ -48,12 +48,12 @@ button {
 }
 
 button:hover {
-    background: #6b47b8;
+    background: #ff9148;
 }
 
 button:disabled {
     cursor: default;
-    background: #7c5cbf94;
+    background: #ff914894;
 }
 
 /* Join Page Styles */
@@ -63,6 +63,7 @@ button:disabled {
     width: 100vw;
     height: 100vh;   
     display: flex;
+    text-align: center;
     justify-content: center;
     align-items: center;
 }
@@ -72,15 +73,18 @@ button:disabled {
     background: #F7F7FA;
     padding: 24px;
     width: 250px;
+    border-radius: 7px;
 }
 
 .centered-form button {
     width: 100%;
+    border-radius: 5px;
 }
 
 .centered-form input {
     margin-bottom: 16px;
     width: 100%;
+    text-align: center;
 }
 
 /* Chat Page Layout */
@@ -93,8 +97,8 @@ button:disabled {
     height: 100vh;
     color: white;
     background: #333744;
-    width: 225px;
-    overflow-y: scroll
+    width: 20%;
+    overflow-y: auto;
 }
 
 /* Chat styles */
@@ -110,6 +114,10 @@ button:disabled {
     flex-grow: 1;
     padding: 24px 24px 0 24px;
     overflow-y: scroll;
+}
+
+#display {
+    padding: 24px 24px 0 24px;
 }
 
 /* Message Styles */
@@ -180,4 +188,16 @@ button:disabled {
     list-style-type: none;
     font-weight: 300;
     padding: 12px 24px 0 24px;
+}
+
+@media (max-width: 600px) {
+    .chat {
+        display: block;
+        width: 100%;
+    }
+    
+    .chat__sidebar {
+        width: 100%;
+        max-height: 30vh;
+    }
 }
